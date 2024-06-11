@@ -113,6 +113,7 @@ if(isset($_SESSION['kd_cs'])) {
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
+                    <li><a href="riwayat.php"><i class="glyphicon glyphicon-list"></i></a></li>
                     <?php 
                     if(isset($_SESSION['kd_cs'])) {
                         $kode_cs = $_SESSION['kd_cs'];
