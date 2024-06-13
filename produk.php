@@ -11,9 +11,9 @@
 		$result = mysqli_query($conn, "SELECT * FROM produk");
 		while ($row = mysqli_fetch_assoc($result)) {
 			?>
-			<div class="col-sm-6 col-md-4">
+			<div class="col-sm-6 col-md-4 col-lg-3">
 				<div class="thumbnail">
-					<img src="image/produk/<?= $row['image']; ?>" >
+				<img src="image/produk/<?= $row['image']; ?>" class="card-img-top img-fluid" alt="<?= $row['nama']; ?>" style="height: 250px; object-fit: cover;">
 					<div class="caption">
 						<h3><?= $row['nama'];  ?></h3>
 						<h4>Rp.<?= number_format($row['harga']); ?></h4>
