@@ -30,7 +30,7 @@
         background-color: #f0f0f0;
         border: 1px solid #ddd;
         margin: 0 1%;
-		margin-top: 20px;
+		margin-top: 30px;
         vertical-align: top;
         box-sizing: border-box;
 		cursor: pointer;
