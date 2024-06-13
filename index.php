@@ -3,12 +3,80 @@ include 'header.php';
 ?>
 <!-- IMAGE -->
 <div class="container-fluid" style="margin: 0;padding: 0;">
-	<div class="image" style="margin-top: -21px">
-		<img src="image/home/jam.jpg" style="width: 100%; height: 800px;">
+	<div class="wrapper"></div>
+		<div class="slides">
+			<span id="slide-1"></span>
+			<span id="slide-2"></span>
+			<span id="slide-3"></span>
+
+			<div class="image" style="margin-top: -21px">
+				<img src="image/home/jam.jpg" style="width: 100%; height: 880px;">
+				<img src="image/home/gambar2.jpg" style="width: 100%; height: 880px;">
+				<img src="image/home/gmbr5.jpg" style="width: 100%; height: 880px;">
+			</div>
+		</div>
 	</div>
+</div>
+<div class="navigation">
+	<a href="#slide-1">1</a>
+	<a href="#slide-2">2</a>
+	<a href="#slide-3">3</a>
+
 </div>
 <br>
 <br>
+<style>
+	.image {
+		display: flex;
+		transition: 2s;
+	}
+
+	.image img {
+		width: 100%;
+	}
+
+	.wrapper {
+		overflow:hidden;
+	}
+
+	#slide-1:target ~ .image {
+		margin-left: 0px;
+	}
+
+	#slide-2:target ~ .image {
+		margin-left: -105%;
+	}
+
+	#slide-3:target ~ .image {
+		margin-left: -210%;
+	}
+
+	.navigation a {
+		display: inline-block;
+		height: 20px;
+		width: 20px;
+		background-color: transparent;
+		font-size: 0px;
+		border: 2px solid black;
+		border-radius: 50%;
+		margin: 9px;
+	}
+
+	.navigation a:hover {
+		background-color: black;
+		transition: 1s;
+	}
+
+	.navigation {
+		position: absolute;
+		margin-left: auto;
+		margin-right: auto;
+		left: 0;
+		right: 0;
+		text-align: center;
+		margin top: -50px;
+	}
+</style>
 
 <!-- PRODUK TERBARU -->
 <div class="container">
@@ -89,7 +157,7 @@ include 'footer.php';
   bottom: 0;
   height: 3px;
   width: 0;
-  background-color: #FFA07A; /*warna garis awal di bawah pas animasi*/
+  background-color: #FFA07A; /warna garis awal di bawah pas animasi/
   transition: 0.5s ease;
 }
 
