@@ -2,14 +2,14 @@
 include 'header.php';
 ?>
 <!-- IMAGE -->
-<div class="container-fluid" style="margin: 0;padding: 0;">
-	<div class="wrapper"></div>
+<div class="container-fluid" style="margin: 0; padding: 0;">
+	<div class="wrapper" style="margin: 0; padding: 0;">
 		<div class="slides">
 			<span id="slide-1"></span>
 			<span id="slide-2"></span>
 			<span id="slide-3"></span>
 
-			<div class="image" style="margin-top: -21px">
+			<div class="image">
 				<img src="image/home/jam.jpg" style="width: 100%; height: 880px;">
 				<img src="image/home/gambar2.jpg" style="width: 100%; height: 880px;">
 				<img src="image/home/gmbr5.jpg" style="width: 100%; height: 880px;">
@@ -17,38 +17,34 @@ include 'header.php';
 		</div>
 	</div>
 </div>
-<div class="navigation">
-	<a href="#slide-1">1</a>
-	<a href="#slide-2">2</a>
-	<a href="#slide-3">3</a>
-
-</div>
+<!-- <div class="navigation">
+	<a href="#slide-1" onclick="navigateSlide(0)">1</a>
+	<a href="#slide-2" onclick="navigateSlide(1)">2</a>
+	<a href="#slide-3" onclick="navigateSlide(2)">3</a>
+</div> -->
 <br>
 <br>
 <style>
 	.image {
 		display: flex;
-		transition: 2s;
+		width: 100%; /* Adjust width based on the number of images */
+		transition: margin-left 1s ease-in-out;
 	}
 
 	.image img {
-		width: 100%;
+		width: 33.3333%; /* Adjust width based on the number of images */
 	}
 
 	.wrapper {
-		overflow:hidden;
+		overflow: hidden;
+		width: 100%;
+		margin: 0; /* Ensuring no margin */
+		padding: 0; /* Ensuring no padding */
 	}
 
-	#slide-1:target ~ .image {
-		margin-left: 0px;
-	}
-
-	#slide-2:target ~ .image {
-		margin-left: -105%;
-	}
-
-	#slide-3:target ~ .image {
-		margin-left: -210%;
+	.container-fluid {
+		margin: 0; /* Ensuring no margin */
+		padding: 0; /* Ensuring no padding */
 	}
 
 	.navigation a {
@@ -56,7 +52,7 @@ include 'header.php';
 		height: 20px;
 		width: 20px;
 		background-color: transparent;
-		font-size: 0px;
+		font-size: 0;
 		border: 2px solid black;
 		border-radius: 50%;
 		margin: 9px;
@@ -74,9 +70,30 @@ include 'header.php';
 		left: 0;
 		right: 0;
 		text-align: center;
-		margin top: -50px;
+		margin-top: -50px;
 	}
 </style>
+
+<script>
+	let currentSlide = 0;
+	const totalSlides = document.querySelectorAll('.image img').length;
+	const intervalTime = 3000;
+	let slideInterval;
+
+	function showNextSlide() {
+		currentSlide = (currentSlide + 1) % totalSlides;
+		document.querySelector('.image').style.marginLeft = `-${currentSlide * 100}%`;
+	}
+
+	function navigateSlide(slideIndex) {
+		currentSlide = slideIndex;
+		document.querySelector('.image').style.marginLeft = `-${currentSlide * 100}%`;
+		clearInterval(slideInterval);
+		slideInterval = setInterval(showNextSlide, intervalTime);
+	}
+
+	slideInterval = setInterval(showNextSlide, intervalTime);
+</script>
 
 <!-- PRODUK TERBARU -->
 <div class="container">
@@ -157,7 +174,7 @@ include 'footer.php';
   bottom: 0;
   height: 3px;
   width: 0;
-  background-color: #FFA07A; /warna garis awal di bawah pas animasi/
+  background-color: #FFA07A; /* warna garis awal di bawah pas animasi */
   transition: 0.5s ease;
 }
 
