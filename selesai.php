@@ -32,7 +32,7 @@ if (isset($_GET['id_order'])) {
         <h3>ID Pesanan: <?php echo htmlspecialchars($order['id_order']); ?></h3>
         <h3>Tanggal: <?php echo htmlspecialchars($order['tanggal']); ?></h3>
         <h4 class="text-center" style="font-weight: bold;">
-            Terimakasih Sudah Berbelanja di Rapi-Cake Bakery,
+            Terimakasih Sudah Berbelanja di Zovy Watch,
             <?php
             if ($order['terima'] == '1') {
                 echo "Pesanan Anda diterima dan sedang diproses. Silahkan tunggu barangmu dirumah ya.. :)";

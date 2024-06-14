@@ -3,7 +3,7 @@ include 'header.php';
 ?>
 <!-- IMAGE -->
 <div class="container-fluid" style="margin: 0; padding: 0;">
-	<div class="wrapper" style="margin: 0; padding: 0;">
+	<div class="wrapper">
 		<div class="slides">
 			<span id="slide-1"></span>
 			<span id="slide-2"></span>
@@ -37,14 +37,7 @@ include 'header.php';
 
 	.wrapper {
 		overflow: hidden;
-		width: 100%;
-		margin: 0; /* Ensuring no margin */
-		padding: 0; /* Ensuring no padding */
-	}
-
-	.container-fluid {
-		margin: 0; /* Ensuring no margin */
-		padding: 0; /* Ensuring no padding */
+		margin-top: -20px;
 	}
 
 	.navigation a {
