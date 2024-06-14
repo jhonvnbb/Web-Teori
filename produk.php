@@ -9,40 +9,43 @@
 	<div class="row">
 		<?php 
 		$result = mysqli_query($conn, "SELECT * FROM produk");
+		
 		while ($row = mysqli_fetch_assoc($result)) {
+			if ($row['status'] == 1) {
 			?>
-			<div class="col-sm-6 col-md-4 col-lg-3">
-				<div class="thumbnail">
-				<img src="image/produk/<?= $row['image']; ?>" class="card-img-top img-fluid" alt="<?= $row['nama']; ?>" style="height: 250px; object-fit: cover;">
-					<div class="caption">
-						<h3><?= $row['nama'];  ?></h3>
-						<h4>Rp.<?= number_format($row['harga']); ?></h4>
-						<div class="row">
-							<div class="col-md-6">
-								<a href="detail_produk.php?produk=<?= $row['kode_produk']; ?>" class="btn btn-warning btn-block">Detail</a> 
-							</div>
-							<?php if(isset($_SESSION['kd_cs'])){ ?>
+				<div class="col-sm-6 col-md-4 col-lg-3">
+					<div class="thumbnail">
+					<img src="image/produk/<?= $row['image']; ?>" class="card-img-top img-fluid" alt="<?= $row['nama']; ?>" style="height: 250px; object-fit: cover;">
+						<div class="caption">
+							<h3><?= $row['nama'];  ?></h3>
+							<h4>Rp.<?= number_format($row['harga']); ?></h4>
+							<div class="row">
 								<div class="col-md-6">
-									<a href="proses/add.php?produk=<?= $row['kode_produk']; ?>&kd_cs=<?= $kode_cs; ?>&hal=1" class="btn btn-success btn-block" role="button"><i class="glyphicon glyphicon-shopping-cart"></i> Tambah</a>
+									<a href="detail_produk.php?produk=<?= $row['kode_produk']; ?>" class="btn btn-warning btn-block">Detail</a> 
 								</div>
-								<?php 
-							}
-							else{
-								?>
-								<div class="col-md-6">
-									<a href="keranjang.php" class="btn btn-success btn-block" role="button"><i class="glyphicon glyphicon-shopping-cart"></i> Tambah</a>
-								</div>
+								<?php if(isset($_SESSION['kd_cs'])){ ?>
+									<div class="col-md-6">
+										<a href="proses/add.php?produk=<?= $row['kode_produk']; ?>&kd_cs=<?= $kode_cs; ?>&hal=1" class="btn btn-success btn-block" role="button"><i class="glyphicon glyphicon-shopping-cart"></i> Tambah</a>
+									</div>
+									<?php 
+								}
+								else{
+									?>
+									<div class="col-md-6">
+										<a href="keranjang.php" class="btn btn-success btn-block" role="button"><i class="glyphicon glyphicon-shopping-cart"></i> Tambah</a>
+									</div>
 
-								<?php 
-							}
-							?>
+									<?php 
+								}
+								?>
+
+							</div>
 
 						</div>
-
 					</div>
 				</div>
-			</div>
 			<?php 
+			}
 		}
 		?>
 	</div>

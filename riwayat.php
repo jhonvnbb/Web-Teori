@@ -93,7 +93,7 @@ if (isset($_SESSION['kd_cs'])) {
                         </div>
 
                         <div class="riw-detail">
-                            <a href="selesai.php?id_order=<?php echo htmlspecialchars($order['id_order']); ?>">
+                            <a href="lihat-riwayat.php?id_order=<?php echo htmlspecialchars($order['id_order']); ?>">
                                 <h3><?php echo htmlspecialchars($order['nama_produk']); ?></h3>
                             </a>
                             <h5>Invoice: <?php echo htmlspecialchars($order['invoice']); ?></h5>

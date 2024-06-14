@@ -1,6 +1,11 @@
 <?php 
-	include 'header.php';
- ?>
+session_start();
+if (isset($_SESSION['user'])) {
+    header('Location: index.php');
+    exit();
+}
+include 'header.php';
+?>
 
 <div class="container" style="padding-bottom: 250px;">
 		<h2 style=" width: 100%; border-bottom: 4px solid #ff8680"><b>Login</b></h2>

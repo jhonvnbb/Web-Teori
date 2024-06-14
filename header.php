@@ -1,8 +1,10 @@
 <?php 
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 include 'koneksi/koneksi.php';
-if(isset($_SESSION['kd_cs'])) {
-    $kode_cs = $_SESSION['kd_cs'];
+if(isset($_SESSION['user'])) {
+    $kode_cs = $_SESSION['user'];
 }
 ?>
 <!DOCTYPE html>
@@ -40,7 +42,7 @@ if(isset($_SESSION['kd_cs'])) {
         .nav > li > a {
             color: #555; /* Mengubah warna teks normal */
             position: relative;
-			padding-bottom: 2px;
+            padding-bottom: 2px;
         }
         .nav > li > a:hover, .nav > li > a:focus {
             color: #ff8680; /* Mengubah warna teks saat hover */
@@ -104,11 +106,11 @@ if(isset($_SESSION['kd_cs'])) {
                     <li><a href="produk.php">Produk</a></li>
                     <li><a href="about.php">Tentang Kami</a></li>
                     <li><a href="manual.php">Manual Aplikasi</a></li>
-					<li class="dropdown">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">All Categories <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                        <li><a href="all_categories.php?category=Men">Men</a></li>
-                        <li><a href="all_categories.php?category=Women">Women</a></li>
+                            <li><a href="all_categories.php?category=Men">Men</a></li>
+                            <li><a href="all_categories.php?category=Women">Women</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -138,7 +140,7 @@ if(isset($_SESSION['kd_cs'])) {
                     } else {
                     ?>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-user"></i> <?= $_SESSION['user']; ?> <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-user"></i> <?= $_SESSION['user']; ?> <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="proses/logout.php">Log Out</a></li>
                         </ul>

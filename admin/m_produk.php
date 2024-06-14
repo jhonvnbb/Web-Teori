@@ -13,6 +13,7 @@ include 'header.php';
 					<th scope="col">Nama Produk</th>
 					<th scope="col">Image</th>
 					<th scope="col">Harga</th>
+					<th scope="col">Status</th>
 					<th scope="col">Action</th>
 				</tr>
 			</thead>
@@ -28,6 +29,7 @@ include 'header.php';
 						<td><?= $row['nama'];  ?></td>
 						<td><img src="../image/produk/<?= $row['image']; ?>" width="100"></td>
 						<td>Rp.<?= number_format($row['harga' ]);  ?></td>
+						<td><?= $row['status']; ?></td>
 						<td><a href="edit_produk.php?kode=<?= $row['kode_produk']; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i> </a> <a href="proses/del_produk.php?kode=<?= $row['kode_produk']; ?>" class="btn btn-danger" onclick="return confirm('Yakin Ingin Menghapus Data ?')"><i class="glyphicon glyphicon-trash"></i> </a></td>
 					</tr>
 				<?php
